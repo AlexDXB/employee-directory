@@ -71,6 +71,29 @@ function displayModal(index) {
     `;
     overlay.classList.remove("hidden");
     modalContainer.innerHTML = modalHTML;
+
+                // move back and forth between employee detail windows
+
+
+    let empCards = employees.indexOf(employees[index]);
+    function nextCard() {
+        if (empCards < 12 ) {
+            displayModal((empCards += 1))
+        }
+    }
+    function prevCard() {
+        if (empCards > 0) {
+            displayModal((empCards -= 1));
+        }
+    }
+
+
+    let prev = document.querySelector('.prev')
+    let next = document.querySelector('.next')
+
+    next.addEventListener('click', nextCard);
+    prev.addEventListener('click', prevCard);
+
 }
 
 gridContainer.addEventListener('click', e => {
@@ -87,33 +110,6 @@ modalClose.addEventListener('click', () => {
     overlay.classList.add("hidden");
 });
 
-
-
-// move back and forth between employee detail windows when the modal window is open.
-
-
-const prev = document.querySelector('.prev')
-const next = document.querySelector('.next')
-
-let currentSlide = 0;
-
-next.addEventListener('click', () => {
-    changeSlide(currentSlide + 1)
-    
-});
-prev.addEventListener('click', () => {
-    changeSlide(currentSlide - 1 )
-    
-});
-
-function changeSlide(move) {
-    if(move >= modalContainer.length) {
-        move = 0;
-    } if (move < 0 ) {
-        move = modalContainer.length - 1 ;
-    }
-    currentSlide = move;
-}
                         // search for user 
 function searchUsers() {
     let input = document.getElementById('search').value.toLowerCase();
@@ -128,8 +124,3 @@ function searchUsers() {
         }
     }
 }
-
-
-
-
-

@@ -4,8 +4,12 @@ body{
 
 }
 header {
-    margin:50px auto;
+    margin:0 auto;
     text-align: center;
+}
+header h1 {
+    margin-top: 0;
+    padding-top: 20px;
 }
 .grid-container {
     display: grid;
@@ -53,6 +57,7 @@ header {
 }
 .overlay {
     position: absolute;
+    height: 100vh;
     top: 0;
     left: 0;
     right: 0;
@@ -125,6 +130,6 @@ header {
     border: 1px solid darkgray;
     border-radius: 8px;
     padding-left: 5px;
-    margin: 10px;
+    margin: 20px 0;
     font-size: 1rem;
 }
