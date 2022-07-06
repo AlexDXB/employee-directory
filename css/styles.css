@@ -119,6 +119,7 @@ header h1 {
     border-radius: 5px 0 0 5px;
     user-select: none;
     -webkit-user-select: none;
+    display: flex;
 }
 .prev:hover,
 .next:hover {

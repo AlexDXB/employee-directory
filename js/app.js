@@ -66,30 +66,34 @@ function displayModal(index) {
             <p>${phone}</p>
             <p class="address">${street.number}, ${street.name}, ${state} ${postcode}</p>
             <p>Birthday:
-                ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+                ${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}</p>
         </div>
     `;
     overlay.classList.remove("hidden");
     modalContainer.innerHTML = modalHTML;
 
                 // move back and forth between employee detail windows
-
+    let prev = document.querySelector('.prev')
+    let next = document.querySelector('.next')
 
     let empCards = employees.indexOf(employees[index]);
     function nextCard() {
         if (empCards < 12 ) {
             displayModal((empCards += 1))
+        } if (empCards === 12) {
+            next.style.display = 'none'
         }
     }
     function prevCard() {
         if (empCards > 0) {
-            displayModal((empCards -= 1));
+            displayModal((empCards -= 1));    
+        } if (empCards === 0) {
+            prev.style.display = 'none'
         }
     }
 
 
-    let prev = document.querySelector('.prev')
-    let next = document.querySelector('.next')
+   
 
     next.addEventListener('click', nextCard);
     prev.addEventListener('click', prevCard);
